@@ -1,0 +1,38 @@
+{%extends "layout.html"%}
+{%block body%}
+{{ super() }}
+<form method="post">
+	<label>
+		# of artifacts
+		<input type="text" name="N"></input>
+	</label>
+	<label>
+		atk
+		<input type="text" name="ATK"></input>
+	</label>
+	<label>
+		cr
+		<input type="text" name ="CR"></input>
+	</label>
+	<label>
+		cd
+		<input type="text" name ="CD"></input>
+	</label>
+	<label>
+		hp
+		<input type="text" name="HP"></input>
+	</label>
+	<label>
+		def
+		<input type="text" name="DEF"></input>
+	</label>
+	<label>
+		damage function
+		<select name ="FUNC">
+			<option value="flat">flat</option>
+			<option value="aggravate">aggravate</option>
+		</select>
+	</label>
+	<input type="submit" value="Submit"></input>
+</form>
+{%endblock%}

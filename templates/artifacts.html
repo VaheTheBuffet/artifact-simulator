@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block body %}
+{{ super() }}
+	<div>
+	<button hx-get="/create_artifact">create</button>
+	</div>
+	<div class ="container">
+		{% for artifact in c.artifacts %}
+		<a class="artifact" hx-get="/artifacts" hx-trigger="click" hx-target="body" hx-swap="beforeend">
+			<img src = "/static/images/{{artifact}}.png">
+			<p>{{ c.artifacts[artifact].main}}</p>
+			{% for sub in c.artifacts[artifact].stats %}
+			<p>{{ sub }}: {{ c.artifacts[artifact].stats[sub] }}</p>
+			{% endfor %}
+		</a>
+		{% endfor %}
+	</div>
+{% endblock %}

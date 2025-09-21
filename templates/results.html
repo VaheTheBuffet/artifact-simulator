@@ -1,0 +1,21 @@
+{% extends "simulate.html" %}
+{% block extra %}
+<p>{{ function(c) }}</p>
+{% for artifact in c.artifacts%}
+<div>
+	<img src = "/static/images/{{artifact}}.png">
+	<p>{{ c.artifacts[artifact].main}}</p>
+	{% for sub in c.artifacts[artifact].stats %}
+	<p>{{ sub }}: {{ c.artifacts[artifact].stats[sub] }}</p>
+	</img>
+	{% endfor %}
+</div>
+{% endfor %}
+<p>-------------------------------------STATS-----------------------------------</p>
+{% for stat in c.total_stats %}
+<p>{{stat}}: {{c.total_stats[stat]}}</p>
+{% endfor %}
+<form method = "post">
+	<input type = "submit" value = "Save Artifacts"></input>
+</form>
+{% endblock %}
